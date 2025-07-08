@@ -7,6 +7,8 @@
     "minimum": "12",
     "verified": "13"
   },
+  "url": "https://github.com/cosmosaurs/click-to-scene",
+  "bugs": "https://github.com/cosmosaurs/click-to-scene/issues",
   "authors": [
     {
       "name": "Cosmosaurs Studio",
