@@ -18,7 +18,7 @@ Rather than aiming to replace or replicate their extensive feature sets, this mo
 
 ## Support Us
 
-If you enjoy this module and want to see it grow, you can support us in many ways!
+If you enjoy this module, you can support us in many ways!
 Just following us or sharing the module helps a lot. Thank you! 💚
 
 - [Patreon](https://www.patreon.com/cosmosaurs)
