@@ -10,6 +10,8 @@ Enhance your scene navigation with this lightweight, system‑agnostic tool:
 
 Perfect for GMs who want a faster, cleaner way to navigate their game maps — no extra steps, no fuss!
 
+![click-to-scene-demo.webm](demo/click-to-scene-demo.webm)
+
 ## Related Modules
 
 *Click‑to‑Scene* is designed for seamless compatibility with other scene navigation tools, including [Compact Scene Navigation](https://foundryvtt.com/packages/compact-scene-navigation) and [Monk’s Scene Navigation](https://foundryvtt.com/packages/monks-scene-navigation).
