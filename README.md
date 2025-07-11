@@ -1,6 +1,6 @@
 # 🎯 Click-to-Scene by Cosmosaurs
 
-Enhance your scene navigation with this lightweight, system‑agnostic tool:
+Enhance your scene navigation with this lightweight, system‑agnostic module:
 
 - **Click any scene link in a journal entry** to instantly jump to that scene — no need for extra steps.
 - **Single‑click scenes in the sidebar’s Scenes list:**
