@@ -2,7 +2,6 @@ const MODULE_ID = 'cs-click-to-scene';
 const SETTING_ID = {
   ENABLE_SCENES_LIST_JUMP: 'enableScenesListJump',
 };
-const SCENE_DIRECTORY_CB = 'SceneDirectory.prototype._onClickEntryName';
 
 Hooks.once('init', () => {
   if (!game.modules.get('lib-wrapper')?.active) {
@@ -16,7 +15,7 @@ Hooks.once('init', () => {
   }
 
   registerSettings({
-    [SETTING_ID.ENABLE_SCENES_LIST_JUMP]: monksSceneNavigationActive
+    [SETTING_ID.ENABLE_SCENES_LIST_JUMP]: monksSceneNavigationActive,
   });
 
   libWrapper.register(
@@ -48,20 +47,25 @@ function handleSceneClick(event, scene) {
 }
 
 function handleScenesListSettingChange(enabled) {
+  const isFvtt13OrHigher = foundry.utils.isNewerVersion(game.version, '13.000');
+  const cbName = isFvtt13OrHigher
+    ? 'foundry.applications.sidebar.tabs.SceneDirectory.prototype._onClickEntryName'
+    : 'SceneDirectory.prototype._onClickEntryName';
+
   if (enabled) {
-    libWrapper.register(
-      MODULE_ID,
-      SCENE_DIRECTORY_CB,
-      (wrapped, event) => {
-        const id = event.currentTarget?.parentElement?.dataset?.documentId;
-        const scene = game.scenes.get(id);
+    const getSceneId = isFvtt13OrHigher
+      ? (event) => event.target?.parentElement?.dataset?.entryId
+      : (event) => event.currentTarget?.parentElement?.dataset?.documentId;
+
+    libWrapper.register(MODULE_ID, cbName, (wrapped, event) => {
+        const scene = game.scenes.get(getSceneId(event));
         if (!scene) return wrapped(event);
         handleSceneClick(event, scene);
       },
       'MIXED',
     );
   } else {
-    libWrapper.unregister(MODULE_ID, SCENE_DIRECTORY_CB);
+    libWrapper.unregister(MODULE_ID, cbName);
   }
 }
 
