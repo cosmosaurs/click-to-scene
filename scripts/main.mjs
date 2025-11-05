@@ -47,16 +47,11 @@ function handleSceneClick(event, scene) {
 }
 
 function handleScenesListSettingChange(enabled) {
-  const isFvtt13OrHigher = foundry.utils.isNewerVersion(game.version, '13.000');
-  const cbName = isFvtt13OrHigher
-    ? 'foundry.applications.sidebar.tabs.SceneDirectory.prototype._onClickEntryName'
-    : 'SceneDirectory.prototype._onClickEntryName';
+  const cbName = 'foundry.applications.sidebar.tabs.SceneDirectory.prototype._onClickEntry';
 
   if (enabled) {
-    const getSceneId = isFvtt13OrHigher
-      ? (event) => event.target?.parentElement?.dataset?.entryId
-      : (event) => event.currentTarget?.parentElement?.dataset?.documentId;
-
+    const getSceneId = (event) => event.target?.parentElement?.dataset?.entryId;
+  
     libWrapper.register(MODULE_ID, cbName, (wrapped, event) => {
         const scene = game.scenes.get(getSceneId(event));
         if (!scene) return wrapped(event);
