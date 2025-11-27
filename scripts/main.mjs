@@ -47,21 +47,20 @@ function handleSceneClick(event, scene) {
 }
 
 function handleScenesListSettingChange(enabled) {
-  const cbName = 'foundry.applications.sidebar.tabs.SceneDirectory.prototype._onClickEntry';
-
-  if (enabled) {
-    const getSceneId = (event) => event.target?.parentElement?.dataset?.entryId;
-  
-    libWrapper.register(MODULE_ID, cbName, (wrapped, event) => {
-        const scene = game.scenes.get(getSceneId(event));
-        if (!scene) return wrapped(event);
-        handleSceneClick(event, scene);
-      },
-      'MIXED',
-    );
-  } else {
+    const cbName = 'foundry.applications.sidebar.tabs.SceneDirectory.prototype._onClickEntry';
     libWrapper.unregister(MODULE_ID, cbName);
-  }
+
+    if (enabled) {
+        const getSceneId = (event) => event.target?.parentElement?.dataset?.entryId;
+
+        libWrapper.register(MODULE_ID, cbName, (wrapped, event) => {
+                const scene = game.scenes.get(getSceneId(event));
+                if (!scene) return wrapped(event);
+                handleSceneClick(event, scene);
+            },
+            'MIXED',
+        );
+    }
 }
 
 function registerSettings(options) {
