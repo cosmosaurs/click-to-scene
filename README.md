@@ -11,7 +11,7 @@ Enhance your scene navigation with this lightweight, system‑agnostic module:
 Perfect for GMs who want a faster, cleaner way to navigate their game maps — no extra steps, no fuss!
 
 ## Installation Guide
-In FVTT modules tab, click _Install module_ button, and then insert manifest link in the input in the bottom part of the window:
+In FVTT modules tab, click _Install module_ button, then either search for Click-to-Scene and press install button, or insert manifest link in the input in the bottom part of the window:
 ```txt
 https://github.com/cosmosaurs/click-to-scene/releases/latest/download/module.json
 ```
