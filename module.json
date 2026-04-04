@@ -5,7 +5,7 @@
   "version": "2.0.2",
   "compatibility": {
     "minimum": "13",
-    "verified": "13"
+    "verified": "14"
   },
   "url": "https://github.com/cosmosaurs/click-to-scene",
   "bugs": "https://github.com/cosmosaurs/click-to-scene/issues",
@@ -16,7 +16,7 @@
       "discord": "https://discord.gg/Hf9a4bgjWz"
     }
   ],
-  "download": "https://github.com/cosmosaurs/click-to-scene/archive/2.0.2.zip",
+  "download": "https://github.com/cosmosaurs/click-to-scene/archive/2.0.3.zip",
   "manifest": "https://github.com/cosmosaurs/click-to-scene/releases/latest/download/module.json",
   "readme": "README.md",
   "esmodules": [
